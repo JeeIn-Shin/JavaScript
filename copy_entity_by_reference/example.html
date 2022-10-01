@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        //프로퍼티가 모두 원시값인 경우 - 얕은 복사
+        //way 1
+        let user = {
+            name : "John",
+            age : 30
+        }
+
+        let clone1 = {};
+
+        for(let key in user)
+            clone1[key] = user[key]
+
+        clone1.name = "Pete";
+
+        alert(user.name);
+        alert(clone1.name);
+
+        //way2
+        //object.assign(dest, [src1, src2, ...])
+        let clone2 = Object.assign({}, user);
+
+        clone2.name = "Jin";
+        alert(clone2.name);
+
+        //프로퍼티에 다른 객체에 의한 참조 값이 있을 경우, 중첩 객체 복사 - 깊은 복사
+
+        // _.cloneDeep() module;
+        // import * as _ from 'lodash';
+
+        // let profile = {
+        //     name : "Jin",
+        //     age : "25",
+        //     family : {
+        //         mother : "Alive",
+        //         sister : "Alive"
+        //     }
+        // }
+
+        // let deep_clone = _.cloneDeep(profile);
+        // alert(deep_clone.family.mother);
+    </script>
+</body>

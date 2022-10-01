@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+   function Assignment1() {
+
+        // let user = {
+        //     name: "John",
+        //     surname: "Smith"
+        // };
+
+        let user = {};
+        user.name = "John";
+        user.surname = "Smith";
+
+        user.name = "Pete";
+        delete user.name;
+
+        for (let key in user)
+            alert(user[key]);
+    }
+
+    //Assignment1();
+    
+    function isEmpty(entity)  {
+        // if (schedule === undefined)
+        //     return true;
+        // return false;
+        for(let key in entity)
+            return false;
+        return true;
+    }
+
+    function Assignment2() {
+        
+        let schedule = {};
+        
+        alert(isEmpty(schedule));
+
+        schedule["8:30"] = "get up";
+        
+        alert(isEmpty(schedule));
+    }
+
+    //Assignment2();
+
+    function Assignment3()  {
+        
+        let salaries = {
+            John : 100,
+            Ann : 160,
+            Pete : 130
+        }
+
+        // let total;
+
+        // total = 0;
+
+        // if (isEmpty(salaries) === false) {
+        //     for(let key in salaries)
+        //         total += salaries[key];
+        // }
+
+        let sum = 0;
+        for(let key in salaries)    {
+            sum += salaries[key]
+        }
+
+        alert(total);
+    }
+
+    //Assignment3();
+
+    function multiplyNumeric(menu)  {
+        // for(let key in menu)
+        //     menu[key] *= 2;
+
+
+        //typeof 연산자는 인수의 자료형을 반환한다.
+        //자료형에 따라 처리 방식을 다르게 하고 싶거나 변수의 자료형을 빠르게 알아내고자 할 때 유용
+        //typeof x를 호출하면 인수의 자료형을 나타내는 문자열을 반환
+        //자료형에는 number, bignit, boolean, string, symbol, object, function 등이 있다.
+        for(let key in menu)    {
+            if(typeof menu[key] == 'number')
+                menu[key] *= 2;
+        }
+    }
+
+    function Assignment4()  {
+        let menu = {
+            width : 200,
+            height : 300,
+            title : "My menu"
+        };
+
+        multiplyNumeric(menu);
+
+        for(let key in menu)
+            alert(menu[key]);
+    }
+
+    //Assignment4();
+</script>
+</body>
+
+</html>
