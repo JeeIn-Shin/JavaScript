@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+
+        function Assignment1_before() {
+            function makeUser() {
+                return {
+                    name: "John",
+                    ref: this
+                };
+            };
+
+            let user = makeUser();
+
+            alert(user.ref.name); //makeUSer is not unfined
+        };
+
+        function Assignment1_after() {
+            function makeUser() {
+                return {
+                    name: "John",
+                    ref() {
+                        return this
+                    }
+                };
+            };
+
+            let user = makeUser();
+
+            alert(user.ref().name);
+        };
+
+        //Assignment1_before();
+        //Assignment1_after();
+
+        function Assignment2() {
+            let calculator = {
+                read() {
+                    this.a = prompt("첫번째 값");
+                    this.b = prompt("두번째 값");
+                },
+
+                sum() {
+                    return +this.a + +this.b;
+                },
+
+                mul() {
+                    return this.a * this.b;
+                }
+            };
+
+            calculator.read();
+            alert(calculator.sum());
+            alert(calculator.mul());
+        }
+
+        //Assignment2();
+
+        function Assignment3() {
+
+            //Solution 1
+            function count_step()   {
+                return {
+                    step : 0,
+                    up() {
+                        this.step++;
+                        return this;
+                    },
+                    down()  {
+                        this.step--;
+                        return this;
+                    },
+                    showStep()  {
+                        alert(this.step);
+                        return this
+                    }
+                }
+            }
+
+            let ladder = count_step();
+
+
+            //Solution2
+            // let ladder = {
+            //         step: 0,
+            //         up_count: 0,
+            //         down_count: 0,
+            //         up() {
+            //             this.step++;
+            //             this.up_count++;
+            //             return this;
+            //         },
+            //         down()  {
+            //             this.step--;
+            //             this.down_count++;
+            //             return this;
+            //         },
+            //         showStep()  {
+            //             alert("total step : " + this.step + " up count : " + this.up_count + " down count : " + this.down_count);
+            //             return this
+            //         }
+            //     };
+
+            //Solution3...은 아니고 이렇게는 안되네 this 이해가 부족한듯 헷갈린다.
+            //자기자신 반환이 대체 체이닝이랑 무슨 관계지
+            //애초에 체이닝은 어디에 쓸..수 있지...........
+            //단순히 번거로워서?
+            // let ladder = {
+            //     step : 0,
+            //     up()    {
+            //         let up_count = () => this.step++;
+            //         up_count();
+            //     },
+            //     down()  {
+            //         let down_count = () => this.step--;
+            //         down_count();
+            //     },
+            //     showStep()  {
+            //         let total_step = () => alert(this.step);
+            //         total_step();
+            //     }
+            // }
+
+            // ladder.up();
+            // ladder.showStep();
+        }
+
+        Assignment3();
+    </script>
+</body>

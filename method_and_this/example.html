@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        // let user = {
+        //     name: "John",
+        //     age: 30
+        // };
+
+        // user.sayHi = function () {
+        //     alert("Hi!");
+        // };
+
+        // user.sayHi();
+
+        // function sayHello() {
+        //     alert("Hello!");
+        // }
+
+        // user.sayHello = sayHello;
+
+        // user.sayHello();
+
+
+        let user = {
+            name: "John",
+            age: 30,
+
+            //this one
+            sayHi: function() {
+                alert("Hi");
+            },
+
+            //and this one
+            sayHello() {
+                alert("Hello");
+            }
+
+            //is same.
+        };
+
+        //user.sayHi();
+        //user.sayHello();
+
+        //use "this"
+        //자바스크립트에서 this는 런타임에 결정됩니다.
+        //메서드가 어디서 정의되었는지에 상관없이 this는 ‘점 앞의’ 객체가 무엇인가에 따라 ‘자유롭게’ 결정됩니다.
+
+        //thanks you for traslation!
+        //In JavaScript, this is determined at runtime.
+        //Regardless of where the method is defined, this is determined 'freely' by what the object 'before the point' is.
+        let my_profile = {
+            name : "Jin",
+            age : "25",
+
+            sayHi() {
+                alert("Hi my name is " + this.name); //this === user
+            },
+
+            sayHello()  {
+                alert("Hello user's name is " + user.name); //External variable reference
+            }
+        };
+
+        //my_profile.sayHi(); //Hi my name is Jin
+        //my_profile.sayHello(); //Hello user's name is John
+
+        //If I want to add method outside of entity, How can I do that?
+        //in the same way as above
+        //But is this necessary?
+
+        let player = { name : "Bong" };
+        let admin = { name : "Admin" };
+
+        function say_GoodMorning()  {
+            alert(this.name + ", Good morning!");
+        }
+
+        user.function = say_GoodMorning;
+        admin.function = say_GoodMorning;
+
+        //user.function();
+        //admin.function();
+
+        //admin['function']();  // == admin.function();
+        
+        //arrow function.
+        //?????????????
+        
+        let korUser = {
+            firstName : "보라",
+            SayHi() {
+                let arrow = () => alert(this.firstName);
+                arrow();
+            }
+        };
+
+        //korUser.SayHi();
+
+        //this에 대해 조금 이해했다.
+        //계속 이해가 안가는 부분이 있었는데, this가 원래 정의되어있는게 아니라면 상위개체를 참조한다.
+        //로 이해하면서 부딪혀보는게 빠를거 같다.
+
+        //https://velog.io/@padoling/JavaScript-%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98%EC%99%80-this-%EB%B0%94%EC%9D%B8%EB%94%A9
+        //해당 페이지 참고
+    </script>
+</body>
