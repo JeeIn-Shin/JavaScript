@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        function Assignment1() {
+            function Calculator() {
+                this.read = () => {
+                    this.firstNumber = +prompt("첫번째 숫자를 입력해주세요");
+                    this.secondNumber = +prompt("두번째 숫자를 입력해주세요");
+                };
+
+                this.sum = () => {
+                    return this.firstNumber + this.secondNumber;
+                };
+
+                this.mul = () => {
+                    return this.firstNumber * this.secondNumber;
+                };
+            }
+
+            let calculator = new Calculator();
+            calculator.read();
+
+            alert("Sum=" + calculator.sum());
+            alert("Mul=" + calculator.mul());
+        }
+
+        Assignment1();
+
+        function Assgiment2()   {
+
+            function Accumulator(startingValue)  {
+                this.value = startingValue;
+                
+                this.read = () => {
+                    this.value += +prompt("더할 값을 입력해주세요");
+                    return this.value;
+                }
+            }
+
+            let accumulator = new Accumulator(1);
+
+            accumulator.read();
+            accumulator.read();
+
+            alert(accumulator.value);
+        }
+
+        //Assgiment2();
+
+    </script>
+</body>

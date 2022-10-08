@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<body>
+    <script>
+
+        function name_user(user)    {
+            user.name = prompt("이름을 입력하세요");
+        }
+
+        // function is_admin(user) {
+        //     user.admin = confirm("관리자인가요?");
+        // }
+
+        function make_user(user)    {
+            name_user(user);
+            //is_admin(user);
+        }
+
+        // function connect_user(user)  {
+        //     alert(`접속자 ${user.name}, 접속을 시도합니다.`);
+        //     if(user.admin == true)
+        //         alert(`관리자 접속, ${user.name}님 환영합니다`);
+        //     else
+        //         alert(`일반 사용자 접속, ${user.name}님 환영합니다`);
+        // }
+
+        function Attempt_access(user)  {
+            alert(`접속자 ${user.name}, 접속을 시도합니다.`);
+            if(user.name == "지인")
+                alert(`관리자 접속, ${user.name}님 환영합니다`);
+            else
+                alert(`일반 사용자 접속, ${user.name}님 환영합니다`);
+        }
+        
+        //생성자함수
+        function User() {
+            this.name;
+            //this.admin;
+        }
+
+        let user1 = new User();
+        let user2 = new User();
+
+        make_user(user1);
+        Attempt_access(user1);
+
+        make_user(user2);
+        Attempt_access(user2);
+    </script>
+</body>
