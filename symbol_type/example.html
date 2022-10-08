@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        //use when you want to create a unique identifier
+
+        let firstdaughter_butSick = Symbol("Hellga");
+        let seconddaghter_toReplaceHerSister = Symbol("Hellga");
+
+        //alert(firstdaughter_butSick == seconddaghter_toReplaceHerSister);
+
+        //if I want to print symbol data
+        //alert(firstdaughter_butSick.toString());    //Symbol("Hellga");
+
+        //or
+        //alert(firstdaughter_butSick.description);   //Hellga;
+
+        //if the identifier was created using the string "id" instead of the symbol, there is a possibility of a conflict
+
+        // function Make_romance_fantasy_character() {
+        //     this.name = "Hellga";
+        //     this.age = +16;
+        //     [this.role]
+        // }
+
+        // let character1 = new Make_romance_fantasy_character();
+        // character1.role = Symbol("main character");
+
+        // for (let key in character1)
+        //     console.log(character1[key]);
+        // //alert(character1[key]); //Uncaught TypeError: Cannot convert a Symbol value to a string 자동으로 걸러진다며
+
+        // let character2 = new Make_romance_fantasy_character();
+        // character2.role = Symbol("유트리트");
+
+        // for (let key in character1)
+        //     console.log(character2[key]);
+        // //alert(character2[key]);
+
+        function Make_romance_fantasy_character() {
+            this.name = "Hellga";
+            this.age = +16;
+            //[this.role]  
+        }
+
+        let role = Symbol("role");
+
+        let character1 = new Make_romance_fantasy_character();
+        //character1.role = Symbol("main character");
+        character1[role] = "main character";
+
+        for (let key in character1)
+            alert(character1[key]); //Uncaught TypeError: Cannot convert a Symbol value to a string 자동으로 걸러진다며
+
+        let character2 = new Make_romance_fantasy_character();
+        character2[role] = "sub character";
+
+        for (let key in character1)
+            alert(character2[key]);
+
+    </script>
+</body>
