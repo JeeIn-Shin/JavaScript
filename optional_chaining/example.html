@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<body>
+    <script>
+        //optional chaining
+        //use only for targets that do not need to exist
+
+        let avatar = {
+            name : "Daenerys Targaryen",
+            children : {
+                dragon : {
+                    firstChild : "Drogon",
+                    secondChild : "Rhaegal",
+                    thridChild : "Viserion"
+                },
+                human : {
+                    son : "Rhaego"
+                }
+            }
+        }
+
+        let NPC1 = avatar.children.human?.daughter;
+        alert(NPC1);
+
+        let NPC2 = avatar.children.human?.son;
+        alert(NPC2);
+
+        delete avatar.children.dragon?.secondChild;
+
+        let NPC3 = avatar.children.dragon?.secondChild;
+        alert(NPC3);
+
+    </script>
+</body>
